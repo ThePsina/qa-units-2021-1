@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Order.js all in input 1`] = `
+<div
+  className="Order"
+>
+  <div
+    className="Order-header"
+  >
+    <span
+      className="Order-shop"
+    >
+      shop
+    </span>
+    <span
+      id="date"
+    >
+      hello from GoLang
+    </span>
+  </div>
+  <div
+    className="Order-items"
+  >
+    <div
+      className="Order-item"
+      key="0"
+    >
+      item1
+    </div>
+    <div
+      className="Order-item"
+      key="1"
+    >
+      item2
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Order.js render without items 1`] = `
+<div
+  className="Order"
+>
+  <div
+    className="Order-header"
+  >
+    <span
+      className="Order-shop"
+    >
+      Alihandro Express
+    </span>
+    <span
+      id="date"
+    >
+      hello from GoLang
+    </span>
+  </div>
+  <div
+    className="Order-items"
+  />
+</div>
+`;
+
+exports[`Order.js render without order 1`] = `""`;
+
+exports[`Order.js render without shop 1`] = `""`;
+
+exports[`Order.js right render 1`] = `
+<div
+  className="Order"
+>
+  <div
+    className="Order-header"
+  >
+    <span
+      className="Order-shop"
+    >
+      shop
+    </span>
+    <span
+      id="date"
+    >
+      hello from GoLang
+    </span>
+  </div>
+  <div
+    className="Order-items"
+  />
+</div>
+`;
