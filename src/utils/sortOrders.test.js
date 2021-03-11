@@ -70,10 +70,10 @@ describe('getSortFunction function', () => {
 describe('sortByDate function', () => {
 	it('dates equal', () => {
 		const order1 = {
-			date: 1552481120000,
+			date: 0,
 		};
 		const order2 = {
-			date: 1552481120000,
+			date: 0,
 		};
 
 		expect(sortByDate(order1, order2)).toBe(0);
@@ -81,10 +81,10 @@ describe('sortByDate function', () => {
 
 	it('left lesser than right date', () => {
 		const order1 = {
-			date: 155248112000,
+			date: 1,
 		};
 		const order2 = {
-			date: 1552481120000,
+			date: 2,
 		};
 
 		expect(sortByDate(order1, order2)).toBe(1);
@@ -92,10 +92,10 @@ describe('sortByDate function', () => {
 
 	it('left greater than right date', () => {
 		const order1 = {
-			date: 155248112000,
+			date: 2,
 		};
 		const order2 = {
-			date: 1552481000,
+			date: 1,
 		};
 
 		expect(sortByDate(order1, order2)).toBe(-1);
