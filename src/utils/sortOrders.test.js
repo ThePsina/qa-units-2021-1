@@ -65,15 +65,19 @@ describe('getSortFunction function', () => {
 	it('right func returns: count', () => {
 		expect(getSortFunction('count')).toBe(sortByItemCount);
 	})
+
+	it('no type', () => {
+		expect(getSortFunction(null)).toBeUndefined();
+	});
 });
 
 describe('sortByDate function', () => {
 	it('dates equal', () => {
 		const order1 = {
-			date: 0,
+			date: 1,
 		};
 		const order2 = {
-			date: 0,
+			date: 1,
 		};
 
 		expect(sortByDate(order1, order2)).toBe(0);
@@ -112,9 +116,17 @@ describe('sortByDate function', () => {
 	it('no date args in date sort', () => {
 		expect(sortByDate({}, {date: 1})).toBe(0);
 	})
+
+	it('null in orders', () => {
+		expect(sortByDate(null, null)).toBe(0);
+	})
 });
 
 describe('sortOrders function', () => {
+	afterEach(() => {
+		jest.resetAllMocks();
+	});
+
 	it('call sort func', () => {
 		const orders = [
 			{items: ['item1', 'item2']},
@@ -133,4 +145,19 @@ describe('sortOrders function', () => {
 		sortOrders(orders, func)
 		expect(func).not.toHaveBeenCalled();
 	})
+
+	it('null args', () => {
+		const func = jest.fn()
+		expect(sortOrders(null, func)).toBeUndefined();
+	})
+
+	it('sortFunction is not a function', () => {
+		const orders = [
+			{items: ['item1', 'item2']},
+			{items: ['item1', "item2", "item3"]}
+		];
+
+		const result = sortOrders(orders, 1);
+		expect(result).toBeUndefined();
+	});
 });
