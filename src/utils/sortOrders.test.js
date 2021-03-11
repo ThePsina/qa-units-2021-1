@@ -58,11 +58,11 @@ describe('sortByItemCount function', () => {
 });
 
 describe('getSortFunction function', () => {
-	it('right type returns date', () => {
+	it('right func returns: date', () => {
 		expect(getSortFunction('date')).toBe(sortByDate);
 	})
 
-	it('right type returns count', () => {
+	it('right func returns: count', () => {
 		expect(getSortFunction('count')).toBe(sortByItemCount);
 	})
 });
