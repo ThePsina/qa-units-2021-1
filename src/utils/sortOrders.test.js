@@ -12,7 +12,6 @@ describe('sortByItemCount function', () => {
 		const order1 = {
 			items: ['item1', 'item2'],
 		};
-
 		const order2 = {
 			items: ['1', '2'],
 		};
@@ -26,7 +25,6 @@ describe('sortByItemCount function', () => {
 		const order1 = {
 			items: ['item1', 'item2'],
 		};
-
 		const order2 = {
 			items: ['1', '2', '3'],
 		};
@@ -57,7 +55,9 @@ describe('sortByItemCount function', () => {
 	it('without items', () => {
 		expect(sortByItemCount({}, {items: []})).toBe(0);
 	})
+});
 
+describe('getSortFunction function', () => {
 	it('right type returns date', () => {
 		expect(getSortFunction('date')).toBe(sortByDate);
 	})
@@ -65,12 +65,13 @@ describe('sortByItemCount function', () => {
 	it('right type returns count', () => {
 		expect(getSortFunction('count')).toBe(sortByItemCount);
 	})
+});
 
+describe('sortByDate function', () => {
 	it('dates equal', () => {
 		const order1 = {
 			date: 1552481120000,
 		};
-
 		const order2 = {
 			date: 1552481120000,
 		};
@@ -82,7 +83,6 @@ describe('sortByItemCount function', () => {
 		const order1 = {
 			date: 155248112000,
 		};
-
 		const order2 = {
 			date: 1552481120000,
 		};
@@ -94,7 +94,6 @@ describe('sortByItemCount function', () => {
 		const order1 = {
 			date: 155248112000,
 		};
-
 		const order2 = {
 			date: 1552481000,
 		};
@@ -113,7 +112,9 @@ describe('sortByItemCount function', () => {
 	it('no date args in date sort', () => {
 		expect(sortByDate({}, {date: 1})).toBe(0);
 	})
+});
 
+describe('sortOrders function', () => {
 	it('call sort func', () => {
 		const orders = [
 			{items: ['item1', 'item2']},
@@ -132,6 +133,4 @@ describe('sortByItemCount function', () => {
 		sortOrders(orders, func)
 		expect(func).not.toHaveBeenCalled();
 	})
-
 });
-
