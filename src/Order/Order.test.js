@@ -16,7 +16,7 @@ describe('Order.js', () => {
     })
 
     afterEach(() => {
-        jest.resetModules()
+        jest.resetAllMocks();
     })
 
     it('right render', () => {
@@ -29,7 +29,7 @@ describe('Order.js', () => {
 
     it('render without order', () => {
         const wrapper = shallow(<Order/>);
-        expect(wrapper).toMatchSnapshot();
+        expect(wrapper.isEmptyRender()).toBeTruthy();
     })
 
     it('render without items', () => {
@@ -51,7 +51,7 @@ describe('Order.js', () => {
                 items: ['item1', 'item2']
             }
         }/>);
-        expect(wrapper).toMatchSnapshot();
+        expect(wrapper.isEmptyRender()).toBeTruthy();
     });
 
     it('all in input', () => {

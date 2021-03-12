@@ -127,27 +127,27 @@ describe('sortOrders function', () => {
 		jest.resetAllMocks();
 	});
 
+	let func
+	beforeEach(() => {
+		func = jest.fn();
+	});
+
 	it('call sort func', () => {
 		const orders = [
 			{items: ['item1', 'item2']},
 			{items: ['item1', "item2", "item3"]}
 		];
 
-		const func = jest.fn()
-		sortOrders(orders, func)
+		sortOrders(orders, func);
 		expect(func).toHaveBeenCalled();
 	})
 
 	it('not call sort func', () => {
-		const orders = [];
-
-		const func = jest.fn()
-		sortOrders(orders, func)
+		sortOrders([], func);
 		expect(func).not.toHaveBeenCalled();
 	})
 
 	it('null args', () => {
-		const func = jest.fn()
 		expect(sortOrders(null, func)).toBeUndefined();
 	})
 
